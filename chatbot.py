@@ -167,6 +167,9 @@ def main():
     """
     First function to call when we start streamlit app
     """
+    # Set the page title and header
+    set_page_title()
+
     # Initialize session state
     initialize_session_state()
 
