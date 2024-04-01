@@ -1,6 +1,6 @@
 # Q-A_Chatbot_using_Mistral_and_RAG_Approach
 Creating an end to end chatbot using Open Source Mistral model to chat with Pdf's using RAG based approach.
-![loan_status](https://github.com/Rahul713713/Loan_Status_Prediction/blob/main/loan_status.jpeg "Loan Status Prediction")
+![GenAI_Chatbot](https://github.com/Rahul713713/Q-A_Chatbot_using_Mistral_and_RAG_Approach/blob/main/images/RAG_Architecture.png "Q&A Chatbot Power by Gen AI using Mistral LLM and RAG")
 - Created multiple charts,graphs,countplots,etc. in order to understand how to minimise the risk of losing money while lending to customers.
 - Worked on a dataset consisting of 614 rows of data for 12 different features.
 - Performed univariate analysis as well as multivariate analysis on various features to understand the importance of every feature.
