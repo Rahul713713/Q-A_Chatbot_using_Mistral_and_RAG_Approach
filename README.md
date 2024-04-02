@@ -1,69 +1,25 @@
-# Q-A_Chatbot_using_Mistral_and_RAG_Approach
-Creating an end to end chatbot using Open Source Mistral model to chat with Pdf's using RAG based approach.
+# Q&A Chatbot using Mistral 7B model and RAG Approach
+Creating an end to end chatbot using Open Source Mistral 7B model from HuggingFace to chat with Pdf's using RAG based approach.
+## Architecture for Q&A Chatbot using Mistral 7B LLM based on RAG Method.
 ![GenAI_Chatbot](https://github.com/Rahul713713/Q-A_Chatbot_using_Mistral_and_RAG_Approach/blob/main/images/RAG.png "Q&A Chatbot Power by Gen AI using Mistral LLM and RAG")
-- Created multiple charts,graphs,countplots,etc. in order to understand how to minimise the risk of losing money while lending to customers.
-- Worked on a dataset consisting of 614 rows of data for 12 different features.
-- Performed univariate analysis as well as multivariate analysis on various features to understand the importance of every feature.
-- Used EDA to understand how consumer attributes and different features help us in identifying customers who are eligible for a loan from customers who are not.
+- Used an open source model called Mistral 7B from HuggingFace along with the Langchain Library to build a product that can be used to chat with the uploaded PDF.
+- Built the solution in two parts where the first part uses Tesla T4 GPU provided by Google Colab to run the ~14 GB Mistral 7B model using GPU and then created a production ready codebase using streamlit and python for the same solution. 
+- Explained concepts like RAG, Vector embeddings, Open source LLMs,etc. in the google colab notebook and built a production ready Gen AI powered chatbot using Mistral 7B, Langcahin and Streamlit.
+- Used **Attention is all you need** research paper to demonstrate the application as this is probably the most important reseach paper in the history of NLP and LLMs. 
 
 # Problem Statement
-Predicting whether an applicant is eligible for the loan that he/she has applied for based on multiple independent variables and Machine Learning. This will help the company in automating the process of checking the eligibility of the applicant for the loan.Now,when a customer applies for a loan, the company has to make a decision whether to approve the loan or not based on the applicant's profile. 
+### The Solution is built in two parts to give a complete undestanding of building an end to end project from stratch to deploying it to production. 
+#### Part 1: Build a solution using Mistral 7B LLM based on RAG methodology to interact with PDF's on Goggle Colab
+The objective here is use the ~14GB Mistral 7B model from HuggingFace to built the prototype and test the solution using T4 GPU provided by Google Colab.
 
-The data that I have contains information about applicants and their Gender,Education,Self_Employed,ApplicantIncome,etc. and whether they are eligible for the loan or not.
+### Part 2: Build an end to end Q&A Chatbot using Mistral 7B LLM and Streamlit based on RAG methodology to interact with PDF's on local CPU. 
+Here, we try to build a end to end Q&A Chatbot tailored for PDF interaction and powered by Mistral 7B, Langchain, and Streamlit. This solution runs seamlessly on your local laptop, putting the power of dynamic Q&A sessions right at your fingertips. **No need for GPU.**
 
-# Code and Resources Used
-- Packages: pandas, numpy, matplotlib, seaborn, scikit-learn
+While operating on a CPU, the response time may be delayed. However, the primary objective is to gain insights and enhance our understanding of the system over the inference time.
 
-# Data Cleaning and Preprocessing
-## After reading the data, I needed to clean it up so that it would be fit for our data analysis. I made the following changes and created the following variables:
-- Checked whether we have missing data for various columns.
-- Some columns had missing values. So, I replaced them accordingly with the median value of the column for the numerical columns. For categorical columns, I replaced the missing values with the most repeating values with respect to the output class. 
-- Performed Data Standardisation to get the data on the same scale with the mean of 0 and standard deviation of 1.
-- Finally,the columns used for EDA are
+# Models and Libraries used
+- Libraries: python, langchain, langchain-community, sentence-transformers, llama-cpp-python, faiss-cpu, streamlit, streamlit_chat, pypdf, etc.
+- Model:  Mistral 7B from HuggingFace
 
- 1   Loan_ID             
- 2   Gender              
- 3   Married             
- 4   Dependents          
- 5   Education           
- 6   Self_Employed       
- 7   ApplicantIncome     
- 8   CoapplicantIncome  
- 9   LoanAmount         
- 10  Loan_Amount_Term   
- 11  Credit_History     
- 12  Property_Area       
- 13  Loan_Status        
-
-# EDA
-After cleaning the data,I started with EDA. These are some of the outcomes of EDA 
-
-![loan_status](https://github.com/Rahul713713/Loan_Status_Prediction/blob/main/loan_eligibilty_based_on_credit_history.png "loan_eligibilty_based_on_credit_history")
-![loan_status](https://github.com/Rahul713713/Loan_Status_Prediction/blob/main/loan_eligibilty_based_on_education.png "loan_eligibilty_based_on_education")
-![loan_status](https://github.com/Rahul713713/Loan_Status_Prediction/blob/main/most_important_features.png "most_important_features")
-
-# Machine Learning Models
-- The Machine Learning Models that I've used are as follow:
-
- 1   Naive Bayes             
- 2   K Nearest Neighbors              
- 3   Logistic Regression - Without Class Balancing             
- 4   Logistic Regression - With Class Balancing          
- 5   Linear SVC           
- 6   SVC With Rbf Kernel      
- 7   Random Forest  
-
-# Result
-    +--------------------------------------------------------------------------------+
-    |           *** Model Summary *** [Performance Metric: Accuracy Score]           |
-    +-----------------------------------------------+----------------+---------------+
-    |                   Model Name                  | Train Accuracy | Test Accuracy |
-    +-----------------------------------------------+----------------+---------------+
-    |                  Naive Bayes                  |     0.794      |     0.817     |
-    |              K Nearest Neighbors              |     0.836      |      0.8      |
-    | Logistic Regression - Without Class Balancing |     0.807      |     0.817     |
-    |   Logistic Regression - With Class Balancing  |     0.801      |     0.808     |
-    |                   Linear SVC                  |     0.807      |     0.808     |
-    |              SVC With Rbf Kernel              |     0.824      |     0.808     |
-    |                 Random Forest                 |     0.817      |     0.808     |
-    +-----------------------------------------------+----------------+---------------+
+# Important resources
+- Link to download the model-> https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q2_K.gguf)
