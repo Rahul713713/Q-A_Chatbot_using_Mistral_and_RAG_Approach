@@ -114,13 +114,13 @@ def generate_response(user_input, conversation_chain):
     """
     Generate LLM response based on the user question by retrieving data from Vector Database
     Also, stores information to streamlit session states 'past' and 'generated' so that it can
-    have memory of previous generation for converstational type of chats (Like chatGPT)
+    have memory of previous generation for conversational type of chats (Like chatGPT)
 
     Args
     - user_input(str): User input as a text
     - conversation_chain: Instance of ConversationalRetrievalChain 
     """
-    with st.spinner('Generaing your answer.....'):
+    with st.spinner('Generating your answer.....'):
         output = conversation_chat(user_input, conversation_chain, st.session_state['history'])
 
     st.session_state['past'].append(user_input)
@@ -194,7 +194,7 @@ def main():
     # Create instance of Mistral 7B GGUF file format using llama.cpp    
     llm = utils.create_llm()
 
-    # Create vector store and store the uploaded Pdf file to the in-mempry vector Database FAISS
+    # Create vector store and store the uploaded Pdf file to the in-memory vector Database FAISS
     # and return an instance of vector store
     vector_store = utils.create_vector_store(pdf_files)
 

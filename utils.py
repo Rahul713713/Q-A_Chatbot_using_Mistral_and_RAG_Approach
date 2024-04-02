@@ -29,7 +29,7 @@ def create_llm():
 
 def create_vector_store(pdf_files: List):
     """
-    Create In-memory FAISS vetor store using uploaded Pdf
+    Create In-memory FAISS vector store using uploaded Pdf
 
     Args:
     - pdf_files(List): PDF file uploaded
