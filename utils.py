@@ -33,7 +33,7 @@ def create_vector_store(pdf_files: List):
 
     Args:
     - pdf_files(List): PDF file uploaded
-    retunrs:
+    returns:
     - vector_store: In-memory Vector store fo further processing at chat app
     """
     vector_store = None

@@ -13,7 +13,6 @@ def set_page_title():
     """
     Function to add the Header and Title of the streamlit webapp
     """
-
     st.set_page_config(page_title="Saiyan AI - Gen AI Powered Chatbot", page_icon=":robot:", layout="wide")
     st.markdown("""
     <style>
@@ -31,7 +30,6 @@ def load_lottieurl(url):
     """
     Function to add Chatbot animation using from lottie on the streamlit web app.
     """
-
     r = requests.get(url)
     if r.status_code != 200:
         return None
@@ -42,7 +40,6 @@ def add_bg_from_local(image_file):
     """
     Function to add background image for the webapp.
     """
-
     with open(image_file, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
     st.markdown(
@@ -62,7 +59,6 @@ def load_local_css(file_name):
     """
     Function to use css file stored in the style folder for improving the design of the web app.
     """
-
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
@@ -71,7 +67,6 @@ def initialize_session_state():
     """
     Session State is a way to share variables between reruns, for each user session.
     """
-
     st.session_state.setdefault('history', [])
     st.session_state.setdefault('generated', ["Hi! I am here to help you with any queries related to the uploaded files."])
     st.session_state.setdefault('past', ["Hi Saiyan!"])
@@ -85,7 +80,6 @@ def create_conversational_chain(llm, vector_store):
     - llm: Instance of Mistral 7B GGUF
     - vector_store: Instance of FAISS Vector store having all the PDF document chunks 
     """
-
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     
     chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff',
@@ -99,7 +93,7 @@ def display_chat(conversation_chain):
     Args:
     - conversation_chain: Instance of LangChain ConversationalRetrievalChain
     """
-    # Craete contains to better organise the elements on the streamlit webapp
+    # Create containers to better organise the elements on the streamlit webapp
     reply_container = st.container()
     container = st.container()
 
@@ -126,8 +120,7 @@ def generate_response(user_input, conversation_chain):
     - user_input(str): User input as a text
     - conversation_chain: Instance of ConversationalRetrievalChain 
     """
-
-    with st.spinner('Genertaing your answer.....'):
+    with st.spinner('Generaing your answer.....'):
         output = conversation_chat(user_input, conversation_chain, st.session_state['history'])
 
     st.session_state['past'].append(user_input)
@@ -162,6 +155,7 @@ def display_generated_responses(reply_container):
             for i in range(len(st.session_state['generated'])):
                 message(st.session_state["past"][i], is_user=True, key=f"{i}_user", avatar_style="adventurer")
                 message(st.session_state["generated"][i], key=str(i), avatar_style="bottts")
+
 
 def main():
     """
